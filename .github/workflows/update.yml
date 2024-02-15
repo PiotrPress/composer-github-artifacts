@@ -1,0 +1,25 @@
+name: Update packages.json
+on: 
+  workflow_call:
+    secrets:
+      token:
+        required: true
+    inputs:
+      owner:
+        type: string
+        required: false
+      repository:
+        type: string
+        required: true
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger
+        run: |
+          curl -L --fail-with-body \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.token }}" \
+            https://api.github.com/repos/${{ inputs.owner || github.repository_owner }}/${{ inputs.repository }}/dispatches \
+            -d '{"event_type":"Update packages.json","client_payload":{"repository":"${{ github.repository }}"}}'
