@@ -43,7 +43,7 @@ $ composer config --global http-basic.github.com x-oauth-basic <token>
 
 Arguments:
 
-- `token` - the [token](https://github.com/settings/tokens) must have permissions to [get repository content](https://docs.github.com/en/rest/repos/contents#get-repository-content)
+- `token` - the [token](https://github.com/settings/tokens) must have permissions to [get repository content](https://docs.github.com/en/rest/repos/contents#get-repository-content) and [list artifacts for a repository](https://docs.github.com/en/rest/actions/artifacts#list-artifacts-for-a-repository)
 
 ## Workflows
 
