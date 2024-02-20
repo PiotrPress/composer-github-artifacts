@@ -18,8 +18,8 @@ jobs:
           echo "Triggered from: ${{ github.event.client_payload.repository || github.repository }} by: ${{ github.event.sender.login }}"
       - name: Setup
         run: |
-          composer config -g allow-plugins.piotrpress/composer-streams true
-          composer global require piotrpress/composer-streams
+          composer config -g allow-plugins.piotrpress/private-composer true
+          composer global require piotrpress/private-composer
       - name: Auth
         env:
           token: ${{ secrets.token }}
@@ -28,7 +28,7 @@ jobs:
           composer config -g http-basic.github.com x-oauth-basic ${{ secrets.token }}
       - name: Update
         run: |
-          composer stream github://${{ inputs.owner || github.repository_owner }} > packages.json
+          composer packages github://${{ inputs.owner || github.repository_owner }} > packages.json
       - name: Upload
         uses: actions/upload-artifact@v4
         with:

@@ -1,4 +1,4 @@
-# Composer GitHub Artifacts
+# GitHub Composer
 
 This Composer plugin adds support for using [GitHub Workflow Artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) as [Composer Repositories](https://getcomposer.org/doc/05-repositories.md#composer).
 
@@ -22,13 +22,13 @@ It also provides [GitHub Workflows](https://docs.github.com/en/actions/using-wor
 1. Add the plugin as a global composer requirement:
 
 ```shell
-$ composer global require piotrpress/composer-github-artifacts
+$ composer global require piotrpress/github-composer
 ```
 
 2. Allow the plugin execution:
 
 ```shell
-$ composer config -g allow-plugins.piotrpress/composer-github-artifacts true
+$ composer config -g allow-plugins.piotrpress/github-composer true
 ```
 
 ## Authentication
@@ -61,7 +61,7 @@ on:
     types: [ Update packages.json ]
 jobs:
   build:
-    uses: PiotrPress/composer-github-artifacts/.github/workflows/build.yml@master
+    uses: piotrpress/github-composer/.github/workflows/build.yml@master
     secrets:
       token: ${{ secrets.token }}
     with:  
@@ -86,7 +86,7 @@ on:
   push:
 jobs:
   update:
-    uses: PiotrPress/composer-github-artifacts/.github/workflows/update.yml@master
+    uses: piotrpress/github-composer/.github/workflows/update.yml@master
     secrets:
       token: ${{ secrets.token }}
     with:  

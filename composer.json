@@ -1,9 +1,9 @@
 {
-    "name": "piotrpress/composer-github-artifacts",
+    "name": "piotrpress/github-composer",
     "type": "composer-plugin",
     "license": "MIT",
     "description": "This Composer plugin adds support for using GitHub Workflow Artifacts as Composer Repositories.",
-    "homepage": "https://github.com/PiotrPress/composer-github-artifacts",
+    "homepage": "https://github.com/PiotrPress/github-composer",
     "authors": [
       {
         "name": "Piotr Niewiadomski",
@@ -23,11 +23,11 @@
       "composer/composer": "^2.0"
     },
     "extra": {
-      "class": "PiotrPress\\Composer\\GitHub\\Artifacts\\Plugin"
+      "class": "PiotrPress\\Composer\\GitHub\\Plugin"
     },
     "autoload": {
       "psr-4": {
-        "PiotrPress\\Composer\\GitHub\\Artifacts\\": "src/"
+        "PiotrPress\\Composer\\GitHub\\": "src/"
       },
       "classmap": [
         "src"

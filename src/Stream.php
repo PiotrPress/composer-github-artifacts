@@ -1,6 +1,6 @@
 <?php declare( strict_types = 1 );
 
-namespace PiotrPress\Composer\GitHub\Artifacts;
+namespace PiotrPress\Composer\GitHub;
 
 use PiotrPress\Streamer;
 use GuzzleHttp\Client;
@@ -10,6 +10,11 @@ class Stream extends Streamer {
 
     static public function setUrl( string $url ) : void {
         self::$url = $url;
+    }
+
+    static public function register( string $protocol, int $flags = 0 ) : bool {
+        if ( \in_array( $protocol, \stream_get_wrappers() ) ) self::unregister( $protocol );
+        return parent::register( $protocol, $flags );
     }
 
     public function stream_open( string $path, string $mode, int $options, ?string &$opened_path ) : bool {       

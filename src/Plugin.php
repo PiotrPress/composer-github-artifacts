@@ -1,6 +1,6 @@
 <?php declare( strict_types = 1 );
 
-namespace PiotrPress\Composer\GitHub\Artifacts;
+namespace PiotrPress\Composer\GitHub;
 
 use Composer\Plugin\PluginInterface;
 use Composer\Composer;
